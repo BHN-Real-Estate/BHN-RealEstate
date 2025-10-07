@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BHN Real Estate — Commercial & Residential (ESTD 2018)</title>
+  <meta name="description" content="BHN Real Estate — Commercial & Residential real estate in Mumbai. Flats & BHKs buying/selling. ESTD 2018. Owner: Shraddha Singh. Contact: +919199632625, bhn.contact@gmail.com."/>
+  <style>
+    :root{
+      --bg:#0b0b0b;
+      --panel:#121212;
+      --panel-2:#171717;
+      --text:#f5f5f5;
+      --muted:#bcbcbc;
+      --gold:#d4af37;
+      --gold-2:#b9952c;
+      --accent:#8a6d1a;
+      --success:#35c66b;
+      --danger:#ff5252;
+      --shadow:0 20px 60px rgba(0,0,0,.5);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:var(--bg); color:var(--text); overflow-x:hidden;
+    }
+    a{color:var(--gold); text-decoration:none}
+    img{max-width:100%; height:auto; display:block}
+
+    /* NAV */
+    .nav{position:sticky; top:0; z-index:50; backdrop-filter: blur(6px); background:rgba(11,11,11,.6); border-bottom:1px solid #222}
+    .nav-inner{max-width:1200px; margin:0 auto; display:flex; align-items:center; gap:24px; padding:14px 20px}
+    .brand{display:flex; align-items:center; gap:12px}
+    .brand-logo{width:44px; height:44px; border-radius:10px; background:#1b1b1b; display:grid; place-items:center; border:1px solid #2a2a2a}
+    .brand-logo img{width:36px; height:36px; object-fit:contain}
+    .brand h1{font-size:20px; margin:0; letter-spacing:.5px}
+    .nav-links{margin-left:auto; display:flex; gap:18px; flex-wrap:wrap}
+    .nav-links a{padding:10px 14px; border-radius:999px; border:1px solid #222; background:#131313; color:#efefef; font-size:14px}
+    .nav-links a:hover{background:#1b1b1b}
+    .badge{margin-left:4px; font-size:12px; color:#000; background:var(--gold); padding:2px 8px; border-radius:999px}
+
+    /* HERO */
+    .hero{position:relative; isolation:isolate;}
+    .hero::before{
+      content:""; position:absolute; inset:0; background:radial-gradient(1200px 500px at 80% -10%, rgba(212,175,55,.18), transparent 60%), radial-gradient(900px 500px at 20% 110%, rgba(212,175,55,.12), transparent 60%);
+      z-index:-1;
+    }
+    .hero-wrap{max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1.2fr .8fr; gap:36px; padding:54px 20px 34px}
+    .hero h2{font-size:48px; line-height:1.05; margin:8px 0 12px}
+    .hero p{font-size:18px; color:var(--muted)}
+    .cta{display:flex; gap:14px; margin-top:22px; flex-wrap:wrap}
+    .btn{padding:14px 22px; border-radius:12px; border:1px solid #2d2d2d; background:linear-gradient(180deg, #1a1a1a, #121212); color:#fff; font-weight:600; box-shadow:var(--shadow); cursor:pointer}
+    .btn.gold{background:linear-gradient(180deg, var(--gold), var(--gold-2)); color:#111; border-color:#a78317}
+    .btn.gold:hover{filter:brightness(.98)}
+    .stat-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:28px}
+    .stat-card{background:var(--panel); border:1px solid #222; border-radius:16px; padding:18px}
+    .stat-card h3{font-size:32px; margin:0; color:var(--gold)}
+    .stat-card p{margin:6px 0 0; color:var(--muted)}
+    .hero-card{background:var(--panel-2); border:1px solid #232323; border-radius:20px; padding:20px; display:grid; gap:16px; align-content:start}
+    .estd{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; background:#141414; border:1px solid #262626; font-size:13px}
+
+    /* SECTIONS */
+    section{padding:56px 20px}
+    .wrap{max-width:1200px; margin:0 auto}
+    h2.section-title{font-size:36px; margin:0 0 12px}
+    .section-sub{color:var(--muted); margin-bottom:26px}
+
+    /* SERVICES */
+    .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .card{background:var(--panel); border:1px solid #222; border-radius:18px; padding:20px; display:grid; gap:8px}
+    .card h3{margin:0; font-size:20px; color:#fff}
+    .card p{margin:0; color:var(--muted)}
+
+    /* LISTINGS */
+    .listings{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .listing{background:var(--panel-2); border:1px solid #232323; border-radius:18px; overflow:hidden; display:grid}
+    .listing img{height:220px; width:100%; object-fit:cover}
+    .listing .lx{padding:16px}
+    .pill{display:inline-block; padding:6px 10px; border:1px solid #2b2b2b; border-radius:999px; font-size:12px; color:#eaeaea}
+
+    /* WHY US */
+    .why{display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:center}
+    .why ul{margin:0; padding-left:18px; line-height:1.9}
+    .why strong{color:var(--gold)}
+
+    /* GALLERY */
+    .gallery{display:grid; grid-template-columns:2fr 1fr 1fr; gap:14px}
+    .gallery img{border-radius:14px; border:1px solid #222; height:100%; object-fit:cover}
+
+    /* OWNER */
+    .owner{display:grid; grid-template-columns:220px 1fr; gap:20px; background:var(--panel); border:1px solid #242424; border-radius:18px; padding:18px}
+    .owner img{width:220px; height:220px; object-fit:cover; border-radius:16px; border:2px solid var(--gold)}
+
+    /* FORM */
+    .form{background:linear-gradient(180deg,#131313,#0f0f0f); border:1px solid #232323; border-radius:18px; padding:20px; display:grid; gap:14px}
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    label{font-size:13px; color:#d6d6d6}
+    input,select,textarea{width:100%; padding:12px 12px; border-radius:10px; border:1px solid #2b2b2b; background:#1a1a1a; color:#fff}
+    textarea{min-height:110px}
+
+    /* CONTACT */
+    .contact-tiles{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    .tile{background:var(--panel); border:1px solid #242424; border-radius:16px; padding:16px}
+
+    /* FOOTER */
+    footer{background:#0f0f0f; border-top:1px solid #202020; padding:28px 20px}
+    .foot{max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1.2fr .8fr; gap:20px; align-items:center}
+
+    /* TOAST */
+    .toast{position:fixed; left:50%; transform:translateX(-50%); bottom:-80px; opacity:0; background:#121212; border:1px solid #2a2a2a; color:#e8ffe9; padding:14px 18px; border-radius:12px; box-shadow:var(--shadow); transition:all .5s ease; z-index:100}
+    .toast.show{bottom:24px; opacity:1; border-color:#1f6f3f}
+
+    /* RESPONSIVE */
+    @media (max-width:1024px){
+      .hero-wrap{grid-template-columns:1fr;}
+      .stat-grid{grid-template-columns:repeat(2,1fr)}
+      .cards,.listings{grid-template-columns:repeat(2,1fr)}
+      .why{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr}
+      .owner{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .contact-tiles{grid-template-columns:1fr 1fr}
+      .foot{grid-template-columns:1fr}
+    }
+    @media (max-width:640px){
+      .nav-links{display:none}
+      .hero h2{font-size:36px}
+      .stat-grid{grid-template-columns:1fr}
+      .cards,.listings{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- Toast for DONE notification -->
+  <div id="toast" class="toast">✅ Request submitted — <strong>Done!</strong> We will reach out shortly.</div>
+
+  <!-- NAVBAR -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-logo">
+          <!-- Logo placeholder -->
+          <img src="https://i.postimg.cc/C1ZMn55q/Screenshot-2025-10-06-221016.jpg" alt="Fortune Real Estate logo" />
+        </div>
+        <h1>BHN Real Estate <span class="badge">ESTD 2018</span></h1>
+      </div>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#listings">Featured</a>
+        <a href="#why">Why Us</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#query">Enquire</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-wrap">
+      <div>
+        <span class="estd">Founded by Shraddha Singh • Since 2018</span>
+        <h2>Commercial & Residential Real Estate in Mumbai —
+          <span style="color:var(--gold)">Specialists in Flats & BHKs</span>
+        </h2>
+        <p>
+          We help families and investors buy & sell premium <strong>1/2/3/4 BHK</strong> homes and high-yield commercial spaces across Andheri, Bandra, Juhu, Powai and more. From discovery and site visits to negotiation and registration — our end‑to‑end service keeps it simple and transparent.
+        </p>
+        <div class="cta">
+          <a class="btn gold" href="#query">Request a Call Back</a>
+          <a class="btn" href="#listings">View Featured Listings</a>
+        </div>
+        <div class="stat-grid">
+          <div class="stat-card"><h3>650+</h3><p>Homes & BHKs transacted</p></div>
+          <div class="stat-card"><h3>₹900 Cr+</h3><p>Property value facilitated</p></div>
+          <div class="stat-card"><h3>4.8★</h3><p>Client satisfaction rating</p></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img src="https://i.postimg.cc/cCmzsMWC/Screenshot-2025-10-07-150829.jpg" alt="Hero" style="border-radius:16px; border:1px solid #242424; aspect-ratio: 16/12; object-fit:cover"/>
+        <div class="owner">
+          <img src="https://i.postimg.cc/0QCnmkBX/photo-2025-10-07-15-09-46.jpg" alt="Shraddha Singh"/>
+          <div>
+            <h3 style="margin:0">Shraddha Singh</h3>
+            <p style="margin:.25rem 0; color:var(--muted)">Founder & Owner — BHN Real Estate </p>
+            <p style="margin:0">“Every client deserves clarity, honesty and a smooth closing. That’s our promise.”</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <h2 class="section-title">Our Core Services</h2>
+      <p class="section-sub">Full‑stack brokerage for <strong>buying & selling flats/BHKs</strong>, rentals, and investment advisory — with strong developer networks and verified inventory.</p>
+      <div class="cards">
+        <div class="card">
+          <h3>Buy & Sell BHKs</h3>
+          <p>1/2/3/4 BHK apartments in prime micro‑markets. We shortlist, negotiate and close with clean documentation.</p>
+        </div>
+        <div class="card">
+          <h3>Commercial Spaces</h3>
+          <p>Showrooms, offices and pre‑leased assets with stable yields. Ideal for business owners & investors.</p>
+        </div>
+        <div class="card">
+          <h3>Home Loan & Registration</h3>
+          <p>Bank tie‑ups for quick loan sanctions. Seamless agreement drafting, stamp duty & registration support.</p>
+        </div>
+        <div class="card">
+          <h3>Property Valuation</h3>
+          <p>Market‑aligned pricing guidance using comps and on‑ground intelligence to maximise returns.</p>
+        </div>
+        <div class="card">
+          <h3>Rental & Property Mgmt</h3>
+          <p>Tenant screening, agreements and end‑to‑end property management for NRI & out‑station owners.</p>
+        </div>
+        <div class="card">
+          <h3>Developer Projects</h3>
+          <p>Early access to reputed developers, RERA‑registered projects, and exclusive inventory blocks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED LISTINGS -->
+  <section id="listings">
+    <div class="wrap">
+      <h2 class="section-title">Featured Listings</h2>
+      <p class="section-sub">A peek into our active & recently closed deals.</p>
+      <div class="listings">
+        <article class="listing">
+          <img src="https://i.postimg.cc/ydH6LXzW/2-01-scaled.jpg" alt="Listing 1"/>
+          <div class="lx">
+            <div class="pill">2 BHK • Andheri West</div>
+            <h3 style="margin:10px 0 6px">Sunset Heights</h3>
+            <p style="color:var(--muted); margin:0 0 10px">Fully‑furnished 950 sq.ft. with balcony, walking distance to Infiniti Mall. 
+            </p>
+            <a class="btn" href="#query">Request details</a>
+          </div>
+        </article>
+        <article class="listing">
+          <img src="https://i.postimg.cc/4xGgk4SF/3-01-scaled.jpg" alt="Listing 2"/>
+          <div class="lx">
+            <div class="pill">3 BHK • Juhu</div>
+            <h3 style="margin:10px 0 6px">Marine Crest</h3>
+            <p style="color:var(--muted); margin:0 0 10px">Sea‑facing 1,420 sq.ft., premium tower with amenities and 2 parkings.</p>
+            <a class="btn" href="#query">Request details</a>
+          </div>
+        </article>
+        <article class="listing">
+          <img src="https://i.postimg.cc/xjmhfDMr/Cost-of-3bhk-apartment-interior-design-civillane.jpg" alt="Listing 3"/>
+          <div class="lx">
+            <div class="pill">Office • Powai</div>
+            <h3 style="margin:10px 0 6px">Powai Tech Park</h3>
+            <p style="color:var(--muted); margin:0 0 10px">1,000 sq.ft. warm shell in A‑grade tower. Ideal for startups & consultancies.</p>
+            <a class="btn" href="#query">Request details</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="why">
+    <div class="wrap">
+      <div class="why">
+        <div>
+          <h2 class="section-title">Why Choose Fortune?</h2>
+          <p class="section-sub">A boutique firm with powerful networks, transparent processes and relentless execution.</p>
+          <ul>
+            <li><strong>Local Expertise:</strong> On‑ground team across Western suburbs ensures accurate pricing & faster closings.</li>
+            <li><strong>Verified Inventory:</strong> Documentation vetted for a safe and stress‑free transaction.</li>
+            <li><strong>Negotiation Power:</strong> We protect your interests and unlock savings without losing the deal.</li>
+            <li><strong>Single‑Window Service:</strong> From site visits to registry and handover — handled by us.</li>
+            <li><strong>Post‑Sale Support:</strong> Utility transfers, society introductions and property management.</li>
+          </ul>
+          <div style="margin-top:16px"><a class="btn gold" href="#query">Talk to an Expert</a></div>
+        </div>
+        <div class="gallery" id="gallery">
+          <img src="https://i.postimg.cc/gj0fknWG/download-42.jpg" alt="Gallery 1"/>
+          <img src="https://i.postimg.cc/WzKfN887/An-Urban-House-by-MISA-Architects.jpg" alt="Gallery 2"/>
+          <img src="https://i.postimg.cc/tCKm8rYq/download-43.jpg" alt="Gallery 3"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENQUIRY FORM -->
+  <section id="query">
+    <div class="wrap">
+      <h2 class="section-title">Get a Callback</h2>
+      <p class="section-sub">Tell us what you’re looking for. Our advisor will contact you within one business day.</p>
+      <form class="form" id="enquiryForm">
+        <div class="grid">
+          <div>
+            <label for="name">Full Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required/>
+          </div>
+          <div>
+            <label for="phone">Phone Number</label>
+            <input id="phone" name="phone" type="tel" placeholder="+91" required/>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com"/>
+          </div>
+          <div>
+            <label for="bhk">BHK Requirement</label>
+            <select id="bhk" name="bhk">
+              <option>1 BHK</option>
+              <option>2 BHK</option>
+              <option>3 BHK</option>
+              <option>4+ BHK</option>
+              <option>Commercial</option>
+            </select>
+          </div>
+          <div>
+            <label for="budget">Budget (₹)</label>
+            <input id="budget" name="budget" type="number" placeholder="e.g., 15000000"/>
+          </div>
+          <div>
+            <label for="location">Preferred Location</label>
+            <input id="location" name="location" type="text" placeholder="Andheri West, Juhu, Powai…"/>
+          </div>
+          <div>
+            <label for="purpose">Purpose</label>
+            <select id="purpose" name="purpose">
+              <option>Self Use</option>
+              <option>Investment</option>
+              <option>Rental Yield</option>
+            </select>
+          </div>
+          <div>
+            <label for="movein">Target Move‑in</label>
+            <input id="movein" name="movein" type="date"/>
+          </div>
+          <div>
+            <label for="bhkcount">Family Size</label>
+            <input id="bhkcount" name="bhkcount" type="number" placeholder="e.g., 4"/>
+          </div>
+        </div>
+        <div>
+          <label for="message">Message / Specific needs</label>
+          <textarea id="message" name="message" placeholder="Vaastu, floor preference, furnished/unfurnished, parking, amenities, etc."></textarea>
+        </div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap">
+          <button class="btn gold" type="submit">Request</button>
+          <button class="btn" type="reset">Clear</button>
+        </div>
+        <small style="color:var(--muted)"></small>
+      </form>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <h2 class="section-title">Contact Us</h2>
+      <p class="section-sub">We’re based in Imperial Chambers, 2nd Floor, Office No - 29 S.S.Tolani Marg, Ballard Estate, Fort, Mumbai. Walk in or schedule a meeting.</p>
+      <div class="contact-tiles">
+        <div class="tile">
+          <h3 style="margin-top:0">Address</h3>
+          <p>Imperial Chambers, 2nd Floor, Office No - 29 S.S.Tolani Marg, Ballard Estate, Fort, Mumbai, Maharashtra 400001, India</p>
+        </div>
+        <div class="tile">
+          <h3 style="margin-top:0">Call</h3>
+          <p><a href="tel:+919199632625">+919199632625</a></p>
+        </div>
+        <div class="tile">
+          <h3 style="margin-top:0">Email</h3>
+          <p><a href="mailto:Bhn.contact@gmail.com">Bhn.contact@gmail.com</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="foot">
+      <p style="margin:0">© 2018–2025 BHN Real Estate • Commercial & Residential • Mumbai, India</p>
+      <p style="margin:0; text-align:right">Owner: <strong>Shraddha Singh</strong></p>
+    </div>
+  </footer>
+
+  <script>
+    // Simple toast notification for "Request" submit
+    const form = document.getElementById('enquiryForm');
+    const toast = document.getElementById('toast');
+    form?.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      toast.classList.add('show');
+      setTimeout(()=> toast.classList.remove('show'), 3000);
+      form.reset();
+    });
+  </script>
+</body>
+</html>
